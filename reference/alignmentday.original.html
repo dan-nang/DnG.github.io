@@ -1,0 +1,1476 @@
+<title>D &amp; G Alignment Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --paper:#F1F1EC;
+  --surface:#FBFAF7;
+  --surface-2:#E7E7DF;
+  --ink:#22262B;
+  --ink-2:#565C63;
+  --ink-3:#868C92;
+  --rule:#D9D9D1;
+  --rule-soft:#E4E4DC;
+  --d:#2C5F5A;
+  --d-soft:#DCE8E6;
+  --g:#7A3F5D;
+  --g-soft:#EFE0E7;
+  --note-bg:#E9EDE1;
+  --note-ink:#3B462F;
+  --note-rule:#C4CFB3;
+  --do-rule:#B9B9AE;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono","SFMono-Regular",Menlo,monospace;
+  --wrap:40rem;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#14171A; --surface:#1C2126; --surface-2:#242A30;
+    --ink:#E7E8E4; --ink-2:#A4AAAF; --ink-3:#787E84;
+    --rule:#2F363C; --rule-soft:#252B31;
+    --d:#79BDB3; --d-soft:#1C2E2C; --g:#D08FAE; --g-soft:#2E2029;
+    --note-bg:#1E251F; --note-ink:#C4D0B6; --note-rule:#374333; --do-rule:#3A424A;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14171A; --surface:#1C2126; --surface-2:#242A30;
+  --ink:#E7E8E4; --ink-2:#A4AAAF; --ink-3:#787E84;
+  --rule:#2F363C; --rule-soft:#252B31;
+  --d:#79BDB3; --d-soft:#1C2E2C; --g:#D08FAE; --g-soft:#2E2029;
+  --note-bg:#1E251F; --note-ink:#C4D0B6; --note-rule:#374333; --do-rule:#3A424A;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:16.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.shell{max-width:var(--wrap);margin:0 auto;padding:0 20px 7rem}
+p{margin:0 0 .9rem}
+h2,h3,h4{text-wrap:balance}
+
+/* ---------- quiet top bar ---------- */
+.bar{
+  position:sticky;top:0;z-index:40;
+  background:var(--paper);
+  background:color-mix(in srgb, var(--paper) 90%, transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);
+}
+.bar-in{max-width:var(--wrap);margin:0 auto;padding:.5rem 20px;display:flex;align-items:center;gap:.7rem}
+.bar-name{font-family:var(--serif);font-size:.95rem;color:var(--ink-2);white-space:nowrap}
+.bar-track{flex:1;height:2px;background:var(--rule)}
+.bar-fill{display:block;height:100%;width:0%;background:var(--ink-3);transition:width .3s ease}
+.bar-count{font-family:var(--mono);font-size:.66rem;color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ---------- title page ---------- */
+.mast{padding:3.2rem 0 2rem;border-bottom:1px solid var(--rule)}
+.mast .for{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:0 0 1.4rem}
+.mast h1{font-family:var(--serif);font-weight:300;font-size:2.5rem;line-height:1.1;margin:0 0 .3rem;letter-spacing:-.01em}
+.mast .sub{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--ink-2);margin:0 0 1.8rem}
+.mast p.body{font-size:1rem;color:var(--ink-2);max-width:33rem}
+.mast p.body strong{color:var(--ink);font-weight:500}
+.names{display:flex;align-items:baseline;gap:.45rem;font-family:var(--serif);font-size:1.2rem;margin:0 0 1.6rem}
+.names .dd{color:var(--d)}
+.names .gg{color:var(--g)}
+.names .amp{color:var(--ink-3);font-style:italic}
+
+/* ---------- legend ---------- */
+.legend-box{border:1px solid var(--rule);border-radius:4px;padding:1rem 1.1rem;margin:1.8rem 0 0;background:var(--surface)}
+.legend-box h4{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:0 0 .8rem;font-weight:500}
+.legend-row{display:flex;gap:.7rem;align-items:baseline;margin-bottom:.6rem;font-size:.9rem;color:var(--ink-2)}
+.legend-row:last-child{margin-bottom:0}
+.legend-row .k{flex:0 0 5.6rem}
+.legend-row .k .tense{margin-bottom:0}
+.lg-tick{display:inline-flex;align-items:center;justify-content:center;width:1.3rem;height:1.3rem;background:var(--d);color:var(--paper);border-radius:3px;font-size:.75rem}
+.lg-do{display:inline-block;font-family:var(--mono);font-size:.58rem;letter-spacing:.11em;text-transform:uppercase;border:1px dashed var(--do-rule);border-radius:2px;padding:.14rem .35rem;color:var(--ink-2)}
+.lg-note{display:inline-block;font-family:var(--mono);font-size:.58rem;letter-spacing:.11em;text-transform:uppercase;background:var(--note-bg);border:1px solid var(--note-rule);color:var(--note-ink);border-radius:2px;padding:.14rem .35rem}
+
+/* ---------- parts ---------- */
+.part{border-bottom:1px solid var(--rule)}
+.part > summary{
+  list-style:none;cursor:pointer;display:grid;grid-template-columns:2rem 1fr 1rem;
+  align-items:start;gap:.8rem;padding:1.4rem 0;
+}
+.part > summary::-webkit-details-marker{display:none}
+.part > summary:focus-visible{outline:2px solid var(--d);outline-offset:3px;border-radius:4px}
+.pnum{font-family:var(--mono);font-size:.7rem;color:var(--ink-3);padding-top:.4rem;font-variant-numeric:tabular-nums}
+.ptitle{font-family:var(--serif);font-weight:400;font-size:1.45rem;line-height:1.2;display:block}
+.pmeta{font-family:var(--mono);font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-top:.35rem;display:block;font-variant-numeric:tabular-nums}
+.chev{margin-top:.5rem;color:var(--ink-3);transition:transform .2s ease;justify-self:end}
+.part[open] .chev{transform:rotate(180deg)}
+.part.alldone .ptitle{color:var(--ink-3)}
+.part.alldone .pnum::after{content:" ✓";color:var(--d)}
+.pbody{padding:0 0 2rem}
+
+/* intro + why */
+.lead{font-family:var(--serif);font-size:1.1rem;color:var(--ink);margin:0 0 1rem;line-height:1.5}
+.why{border-left:2px solid var(--rule);padding:.1rem 0 .1rem .9rem;margin:0 0 1.8rem}
+.why .tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:.3rem}
+.why p{font-size:.94rem;color:var(--ink-2);margin:0}
+
+/* blocks */
+.block{margin:0 0 2rem}
+.block > h3{
+  font-family:var(--sans);font-size:.74rem;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink);margin:0 0 .9rem;
+  padding-bottom:.4rem;border-bottom:1px solid var(--rule-soft);
+}
+
+/* ----- QUESTION ----- */
+.qs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.6rem}
+.q{
+  display:grid;grid-template-columns:1.5rem 1fr;gap:.7rem;align-items:start;
+  background:var(--surface);border:1px solid var(--rule-soft);
+  border-left:2px solid var(--d);border-radius:3px;padding:.8rem .9rem;
+}
+.tick{
+  width:1.5rem;height:1.5rem;margin-top:.05rem;padding:0;cursor:pointer;
+  background:transparent;border:1.5px solid var(--rule);border-radius:3px;
+  color:transparent;font-size:.85rem;line-height:1;font-family:var(--sans);
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+}
+.tick:hover{border-color:var(--ink-3)}
+.tick:focus-visible{outline:2px solid var(--d);outline-offset:2px}
+.tick[aria-pressed="true"]{background:var(--d);border-color:var(--d);color:var(--paper)}
+.q.answered{opacity:.55}
+.qtext{font-family:var(--serif);font-size:1.08rem;line-height:1.45;margin:0;color:var(--ink)}
+.tense{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-3);border:1px solid var(--rule);border-radius:2px;padding:.1rem .35rem;
+  margin-bottom:.45rem;
+}
+.tense::before{content:"";width:.4rem;height:.4rem;border-radius:50%;background:var(--ink-3)}
+.tense.t-six::before{background:var(--ink-3)}
+.tense.t-now::before{background:var(--d)}
+.tense.t-ahead::before{background:var(--g)}
+.hint{display:block;margin-top:.5rem;font-size:.86rem;color:var(--ink-2);line-height:1.5}
+.shape{
+  display:block;margin-top:.6rem;padding:.55rem .65rem;
+  background:var(--surface-2);border-radius:3px;font-size:.87rem;color:var(--ink-2);
+}
+.shape b{
+  display:block;font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-bottom:.25rem;
+}
+.shape i{font-family:var(--serif);font-style:italic;font-size:1.03em;color:var(--ink)}
+
+/* ----- INSTRUCTION ----- */
+.do{border:1px dashed var(--do-rule);border-radius:4px;padding:.95rem 1rem;margin:0 0 1.1rem}
+.do > .tag{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);display:block;margin-bottom:.55rem;font-weight:500;
+}
+.do p{font-size:.95rem;margin:0 0 .6rem}
+.do p:last-child{margin-bottom:0}
+.do ol,.do ul{margin:0;padding-left:1.15rem;font-size:.95rem}
+.do li{margin-bottom:.4rem}
+.do li:last-child{margin-bottom:0}
+.twocol{display:flex;flex-direction:column;gap:.6rem;margin-top:.7rem}
+.twocol .c{border-radius:3px;padding:.6rem .7rem;font-size:.9rem}
+.twocol .c.cd{background:var(--d-soft);color:var(--ink)}
+.twocol .c.cg{background:var(--g-soft);color:var(--ink)}
+.twocol .c b{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:.25rem}
+.twocol .c.cd b{color:var(--d)}
+.twocol .c.cg b{color:var(--g)}
+
+/* ----- NOTE ----- */
+.note{
+  background:var(--note-bg);color:var(--note-ink);border:1px solid var(--note-rule);
+  border-radius:4px;padding:1rem 1.05rem;margin:0 0 1.4rem;font-size:.94rem;
+}
+.note > .tag{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+  display:block;margin-bottom:.5rem;opacity:.85;font-weight:500;
+}
+.note p:last-child{margin-bottom:0}
+.note ul{margin:.55rem 0 0;padding-left:1.1rem}
+.note li{margin-bottom:.4rem}
+.note li:last-child{margin-bottom:0}
+
+/* ----- SCALE LIST ----- */
+.scale{display:flex;flex-direction:column;gap:.35rem;margin:0 0 1rem}
+.scale div{font-size:.9rem;color:var(--ink-2);display:flex;gap:.55rem;align-items:baseline}
+.scale div b{font-family:var(--mono);font-size:.85rem;color:var(--ink);flex:0 0 1rem}
+.map{list-style:none;margin:0 0 1rem;padding:0;border-top:1px solid var(--rule-soft)}
+.map li{padding:.6rem .1rem;border-bottom:1px solid var(--rule-soft);font-size:.95rem;display:flex;gap:.7rem;align-items:baseline}
+.map li .n{font-family:var(--mono);font-size:.66rem;color:var(--ink-3);min-width:1.4rem;font-variant-numeric:tabular-nums}
+.map li .sc{margin-left:auto;font-family:var(--mono);font-size:.7rem;color:var(--ink-3);white-space:nowrap;letter-spacing:.15em}
+
+/* models */
+.models{display:flex;flex-direction:column;gap:.6rem;margin:0 0 1.1rem}
+.model{background:var(--surface);border:1px solid var(--rule-soft);border-radius:4px;padding:.85rem .95rem}
+.model h4{font-family:var(--serif);font-size:1.1rem;font-weight:400;margin:0 0 .3rem}
+.model .desc{font-size:.92rem;color:var(--ink-2);margin:0 0 .5rem}
+.model .tt{display:flex;flex-direction:column;gap:.22rem;font-size:.85rem}
+.model .tt span{color:var(--ink-2)}
+.model .tt b{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--ink-3);margin-right:.35rem}
+
+/* sort */
+.sort{display:flex;flex-direction:column;gap:.6rem;margin:0 0 1.1rem}
+.sortcol{border:1px solid var(--rule-soft);border-radius:4px;padding:.8rem .9rem;background:var(--surface)}
+.sortcol h4{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 .3rem;color:var(--ink)}
+.sortcol p{margin:0;font-size:.88rem;color:var(--ink-2)}
+
+/* part footer */
+.pfoot{margin-top:1.4rem;padding-top:.9rem;border-top:1px solid var(--rule-soft);font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+/* pause */
+.fab{
+  position:fixed;right:16px;bottom:16px;z-index:50;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.11em;text-transform:uppercase;
+  background:var(--ink);color:var(--paper);border:none;border-radius:100px;
+  padding:.75rem 1.05rem;cursor:pointer;box-shadow:0 6px 20px -10px rgba(0,0,0,.5);
+}
+.fab:focus-visible{outline:2px solid var(--g);outline-offset:3px}
+.sheet[hidden]{display:none}
+.sheet{position:fixed;inset:0;z-index:60;background:rgba(10,12,14,.55);display:flex;align-items:flex-end;justify-content:center}
+.sheet-in{background:var(--paper);border-top:3px solid var(--g);width:100%;max-width:var(--wrap);max-height:86vh;overflow-y:auto;padding:1.5rem 1.25rem 1.9rem;border-radius:10px 10px 0 0}
+.sheet-in h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;margin:0 0 .2rem}
+.sheet-in .sd{font-size:.9rem;color:var(--ink-2);margin:0 0 1rem}
+.sheet-in ol{padding-left:1.15rem;margin:0 0 1.2rem}
+.sheet-in li{margin-bottom:.55rem}
+.sheet-in .say{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--ink)}
+.closebtn{font-family:var(--mono);font-size:.66rem;letter-spacing:.11em;text-transform:uppercase;background:var(--ink);color:var(--paper);border:none;border-radius:2px;padding:.6rem 1rem;cursor:pointer;width:100%}
+
+/* closing */
+.close-note{margin-top:2rem;padding-top:1.4rem;border-top:1px solid var(--rule);font-family:var(--serif);font-size:1.1rem;line-height:1.55;color:var(--ink-2)}
+.close-note strong{color:var(--ink);font-weight:400;font-style:italic}
+.sig{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:1.8rem}
+
+@media (min-width:620px){
+  .sort{flex-direction:row}
+  .sortcol{flex:1}
+  .twocol{flex-direction:row}
+  .twocol .c{flex:1}
+  .sheet{align-items:center;padding:24px}
+  .sheet-in{border-radius:8px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+@media print{
+  .bar,.fab{display:none}
+  .part{break-inside:avoid}
+  .q{opacity:1 !important}
+  body{background:#fff;color:#000}
+}
+</style>
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-name">D &amp; G</span>
+    <span class="bar-track"><span class="bar-fill" id="fill"></span></span>
+    <span class="bar-count" id="count">0/0</span>
+  </div>
+</div>
+
+<div class="shell">
+
+  <header class="mast">
+    <p class="for">Private &middot; For the two of us only</p>
+    <h1>Our second conversation</h1>
+    <p class="sub">Deciding with clarity, not just with feeling</p>
+    <div class="names"><span class="dd">D</span><span class="amp">&amp;</span><span class="gg">G</span></div>
+    <p class="body">We did a version of this in our first month. It was rushed, and neither of us was fully honest &mdash; not out of bad faith, but because we hadn't lived anything together yet. Now we have six months of real evidence about who we are with each other.</p>
+    <p class="body"><strong>This isn't a test either of us can fail.</strong> It's a way of replacing what we assume about each other with what we've actually said out loud. Every question here is for both of us.</p>
+
+    <div class="legend-box">
+      <h4>How to read this page</h4>
+      <div class="legend-row"><span class="k lg-tick">&#10003;</span><span><strong>A question.</strong> White card with a box. Both of us answer it &mdash; tap the box once we both have.</span></div>
+      <div class="legend-row"><span class="k lg-do">Do this</span><span><strong>An instruction.</strong> Dashed box. Usually: write separately, then compare.</span></div>
+      <div class="legend-row"><span class="k lg-note">Note</span><span><strong>How to hold this part safely.</strong> Green box. Read it out loud before starting.</span></div>
+      <div class="legend-row"><span class="k"><span class="tense t-six">Six months</span></span><span>The question is about what has already happened between us.</span></div>
+      <div class="legend-row"><span class="k"><span class="tense t-now">Now</span></span><span>About how things stand today.</span></div>
+      <div class="legend-row"><span class="k"><span class="tense t-ahead">Ahead</span></span><span>About the life we're deciding on.</span></div>
+      <div class="legend-row"><span class="k"><span class="tense" style="border-style:dashed">Say it like this</span></span><span>A sentence shape, inside some questions, to make a hard thing easier to start.</span></div>
+    </div>
+  </header>
+
+  <!-- ================= 00 ================= -->
+  <details class="part" id="p0" open>
+    <summary>
+      <span class="pnum">00</span>
+      <span><span class="ptitle">Before we start</span><span class="pmeta" data-meta>Read out loud</span></span>
+      <span class="chev">&#9662;</span>
+    </summary>
+    <div class="pbody">
+      <p class="lead">The rules matter more than the questions.</p>
+      <div class="why"><span class="tag">Why this matters</span><p>Our first conversation didn't fail on content. It failed because it was rushed and because neither of us felt fully safe saying the true version. If we get this part right, everything after it works. If we skip it, we'll just have the same rushed conversation again with better questions.</p></div>
+
+      <div class="block">
+        <h3>How the day runs</h3>
+        <div class="do">
+          <span class="tag">Do this</span>
+          <ul>
+            <li>Two notebooks and two pens. Several parts ask us to write separately first &mdash; that only works on paper.</li>
+            <li>Phones away except this page. Both of us, not one of us.</li>
+            <li>Break properly when we need it. Nothing here has to be finished today, and we can stop halfway and continue another day.</li>
+            <li>Read the green box at the start of each part out loud before beginning it.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>The five rules</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <p class="qtext">Both of us answer everything.</p>
+            <span class="hint">If one person is only asking, this has stopped being a conversation and become an interview.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <p class="qtext">Curiosity before verdict.</p>
+            <span class="hint">The first response to anything we hear is a question, not a reaction. "Tell me more" before "I don't like that."</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <p class="qtext">Either of us can pause, no reason needed.</p>
+            <span class="hint">The Pause button at the bottom of the screen. Pausing is not avoiding.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <p class="qtext">Nothing is settled by exhaustion.</p>
+            <span class="hint">If one of us gives in just to end it, we haven't agreed on anything &mdash; we've postponed it with extra resentment attached.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <p class="qtext">Honesty gets thanked, not punished.</p>
+            <span class="hint">Big enough that it gets its own box, below.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="note">
+        <span class="tag">Note &mdash; say this out loud, together</span>
+        <p><strong>The amnesty clause.</strong> Everything either of us says today &mdash; about our past, our fears, the things we've never said &mdash; is being given voluntarily. It's a gift, not a confession. So before Part 01 we agree:</p>
+        <ul>
+          <li>What gets told today does not get thrown back later, in an argument or anywhere else.</li>
+          <li>Being honest about something never makes it a bigger problem than hiding it would have been. If honesty gets punished here, we're just teaching each other to stop being honest.</li>
+          <li>Asking to understand is allowed. Prosecuting is not. Either of us can say <em>"that's a verdict, not a question"</em> and the other resets without arguing about whether it was fair.</li>
+          <li>Neither of us has to defend who we were before we met.</li>
+          <li>Nobody should walk away from today wishing they'd said less. If that happens, the day failed &mdash; whatever we concluded.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>One each, before we begin</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Name one thing <em>you</em> do that makes the other person stop talking.</p>
+            <span class="hint">Your own, not theirs. Going quiet, getting logical, getting hurt fast, explaining instead of listening, making a joke. Name it now so we can both catch it later without it being an attack.</span>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;When I feel ___, I tend to ___, and I know that makes you stop.&rdquo;</i></span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What are you most hoping comes out of today, and what are you most afraid of?</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- ================= 01 ================= -->
+  <details class="part" id="p1">
+    <summary>
+      <span class="pnum">01</span>
+      <span><span class="ptitle">Our six months</span><span class="pmeta" data-meta>Looking back &middot; honestly</span></span>
+      <span class="chev">&#9662;</span>
+    </summary>
+    <div class="pbody">
+      <p class="lead">Before we talk about the life we want, we look at the one we've already been living.</p>
+      <div class="why"><span class="tag">Why this matters</span><p>Six months is real data, and most of what we need to know is already inside it. Everything we say about the future is a guess; this is the only part of the day where we're working with evidence. If we're honest here, the rest of the day gets much easier.</p></div>
+
+      <div class="block">
+        <h3>The timeline</h3>
+        <div class="do">
+          <span class="tag">Do this</span>
+          <p>Separately, without talking, each of us writes down <strong>three high points</strong> and <strong>two hardest moments</strong> from our six months. Just the moments &mdash; no explanations yet. Then compare.</p>
+        </div>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">Do our lists overlap?</p>
+            <span class="hint">A moment one of us marked as a high and the other doesn't even remember is worth more than an hour of theorising.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">What do the high points have in common? What do the hard ones have in common?</p>
+            <span class="hint">Look for the ingredient, not the event. Time alone together? Feeling chosen? Being under pressure from outside?</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Which of the hard moments do we both consider closed, and which one is still quietly open?</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>What we got wrong about each other</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">What did you assume about me at the start that turned out not to be true?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What have you come to like about me that you didn't notice at first?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What do you now know about me that you're still adjusting to?</p>
+            <span class="hint">Not a complaint &mdash; an adjustment. There's a difference and we should both hear it as one.</span>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;I didn't expect ___. I'm not upset by it, I'm still working out how to ___.&rdquo;</i></span></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>What went unsaid</h3>
+        <div class="note">
+          <span class="tag">Note &mdash; rule for this block only</span>
+          <p>When one of us shares something we swallowed, the listener's <strong>only</strong> permitted responses for the first minute are: one clarifying question, and "thank you for telling me." No defending, no context, no "but you also…". We come back and respond properly after both of us have gone.</p>
+        </div>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">Something I swallowed instead of saying.</p>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;When ___ happened, I felt ___, and I didn't say it because ___.&rdquo;</i></span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">A time I said "it's fine" and it wasn't.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Something I've wanted more of and never asked for.</p>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;What I'd want more of is ___, and it would look like ___.&rdquo;</i></span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What made it feel safer to say nothing?</p>
+            <span class="hint">This is the important one. Whatever the answer is, it's something we built together &mdash; not a flaw in whoever stayed quiet.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>The pattern</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">What's the argument we keep having in different clothes?</p>
+            <span class="hint">Different topic each time, same feeling underneath. Name the feeling.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What reliably sets it off &mdash; the situation, not the person?</p>
+            <span class="hint">Tiredness, distance, being around other people, plans changing at short notice, one of us being busy.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Who usually moves first to fix it, and does that feel fair to both of us?</p>
+            <span class="hint">If the same person always repairs, that person is spending something. Say what it's costing them.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Has the pattern got better, worse, or stayed the same over six months &mdash; and where is it heading?</p>
+            <span class="hint">Direction matters more than the current position. A slowly improving hard thing is very different from a stable one.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- ================= 02 ================= -->
+  <details class="part" id="p2">
+    <summary>
+      <span class="pnum">02</span>
+      <span><span class="ptitle">Money and how we'd live</span><span class="pmeta" data-meta>Financial philosophy &middot; standards</span></span>
+      <span class="chev">&#9662;</span>
+    </summary>
+    <div class="pbody">
+      <p class="lead">Money arguments are almost never about money. They're about safety, freedom, and fairness.</p>
+      <div class="why"><span class="tag">Why this matters</span><p>We're not sharing a household yet, so nothing has been tested. That's exactly why now is cheap and later is expensive: it costs nothing today to discover we picture different things, and it costs a great deal to discover it in year three with a joint account and a mortgage. Before we pick a system, we each say which of the three &mdash; safety, freedom, fairness &mdash; we're actually protecting.</p></div>
+
+      <div class="block">
+        <h3>What we've already seen</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">How have we actually handled money together so far &mdash; who pays for what, and has it ever felt awkward?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">Has either of us made an assumption about the other's spending that we never checked?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What's the money situation you're most afraid of ending up in?</p>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;What I'm protecting is ___. What I'm afraid of is ___.&rdquo;</i></span></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Three decisions, not one</h3>
+        <div class="do">
+          <span class="tag">Do this</span>
+          <p>"How we handle money" is three separate questions collapsed into one, which is why couples talk past each other. Separately, each of us writes an instinctive answer to all three &mdash; whatever comes first, not the diplomatic version:</p>
+          <ol>
+            <li><strong>Earning</strong> &mdash; who brings income in, and what happens if that changes?</li>
+            <li><strong>Managing</strong> &mdash; who runs the day to day: bills, tracking, decisions under a set amount?</li>
+            <li><strong>Owning</strong> &mdash; whose savings are they, and who has a say on the big ones?</li>
+          </ol>
+          <div class="twocol">
+            <div class="c cd"><b>D writes</b>All three, alone, no discussion first.</div>
+            <div class="c cg"><b>G writes</b>All three, alone, no discussion first.</div>
+          </div>
+        </div>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Where did our instincts match, and where did they differ?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">For each one: is that instinct something you actively want, or just what you grew up seeing?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Does either of us believe that whoever earns should be the one who decides?</p>
+            <span class="hint">Say it plainly if the answer is partly yes. It's a common belief, and an unspoken one is far more corrosive than a stated one.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Four ways couples do it</h3>
+        <p class="hint" style="margin-bottom:.8rem">None of these is the right one. Read them, then say which is closest and what we'd change.</p>
+        <div class="models">
+          <div class="model">
+            <h4>Full pool</h4>
+            <p class="desc">All income into one account. Both draw from it. No "my money."</p>
+            <div class="tt">
+              <span><b>Works when</b>trust is high and incomes will swing over a lifetime.</span>
+              <span><b>Strains when</b>spending styles differ, or one person starts feeling watched.</span>
+            </div>
+          </div>
+          <div class="model">
+            <h4>Proportional share</h4>
+            <p class="desc">Both put in the same <em>percentage</em> of income toward shared costs. What's left is personal.</p>
+            <div class="tt">
+              <span><b>Works when</b>incomes are unequal but both want the burden to feel equal.</span>
+              <span><b>Strains when</b>the lower earner still ends up with much less freedom in absolute terms.</span>
+            </div>
+          </div>
+          <div class="model">
+            <h4>Yours, mine, ours</h4>
+            <p class="desc">A joint account for household costs and shared goals. Personal accounts stay personal, no explanations owed.</p>
+            <div class="tt">
+              <span><b>Works when</b>both value independence and both earn.</span>
+              <span><b>Strains when</b>one stops earning, or "personal" quietly grows to cover things that should be joint.</span>
+            </div>
+          </div>
+          <div class="model">
+            <h4>Operator and steward</h4>
+            <p class="desc">One income covers running costs; the other is saved and invested rather than spent.</p>
+            <div class="tt">
+              <span><b>Works when</b>both agree the saved half belongs to <em>both</em> of us, and the operating half isn't treated as the more important job.</span>
+              <span><b>Strains when</b>the one saving feels she has no claim on what she didn't spend, or the one operating feels his whole worth is the payslip.</span>
+            </div>
+          </div>
+        </div>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Which is closest to what each of us pictured, and what would we change about it?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">In whichever model we lean toward: whose name is on what, and who can see everything?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What's the amount above which we always ask each other first?</p>
+            <span class="hint">Pick an actual number today. "Big purchases" is not a number.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Stress tests</h3>
+        <p class="hint" style="margin-bottom:.8rem">A model is only real if it survives these. Walk through each one out loud.</p>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span><p class="qtext">One of us loses income for six months.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span><p class="qtext">One of us earns three times the other, permanently.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span><p class="qtext">A parent or sibling needs a large sum at short notice.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span><p class="qtext">One of us wants to take a pay cut for work that matters more.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span><p class="qtext">One of us wants to stop working for a while.</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>The "normal" gap</h3>
+        <div class="do">
+          <span class="tag">Do this</span>
+          <p>Separately, each of us writes what <strong>normal</strong> looks like &mdash; with real numbers where we can:</p>
+          <p>a weekday dinner &middot; a night out &middot; a holiday &middot; a phone &middot; clothes in a month &middot; the home we'd live in five years from now &middot; how much goes to savings before anything else.</p>
+        </div>
+        <div class="note">
+          <span class="tag">Note &mdash; before comparing</span>
+          <p>A gap in standards isn't a character flaw in either direction &mdash; not in the one who wants more, not in the one who wants less. What ruins couples is an <strong>unspoken</strong> gap that turns into quiet judgement on one side and quiet shame on the other. So we name the number, not the vibe.</p>
+        </div>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Where are our two "normals" furthest apart?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Who feels that gap more day to day, and what would it actually cost each of us to move toward the other?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Is there anything the other person spends on that you've quietly judged?</p>
+            <span class="hint">Say it kindly, once, so it can be discussed rather than carried.</span>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;When you spend on ___, I notice I feel ___. I'd rather ask about it than keep thinking it.&rdquo;</i></span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What do our values or faith say about what we owe, what we give away, and what we keep &mdash; and do we read that the same way?</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- ================= 03 ================= -->
+  <details class="part" id="p3">
+    <summary>
+      <span class="pnum">03</span>
+      <span><span class="ptitle">Time together, apart</span><span class="pmeta" data-meta>Quality time &middot; online and in person</span></span>
+      <span class="chev">&#9662;</span>
+    </summary>
+    <div class="pbody">
+      <p class="lead">We don't live together. Almost every hour we get is one somebody chose to make.</p>
+      <div class="why"><span class="tag">Why this matters</span><p>Couples who live together get time by accident &mdash; they're in the same kitchen. We don't. Every call, every trip, every protected evening exists because one of us built it. That makes this the area where drift is easiest and slowest to notice, and where a small habit repeated for a year quietly becomes the whole relationship. This part is about how much of each other we get and what it feels like. Part 04 is about what happens inside that time when it goes wrong &mdash; they're different questions.</p></div>
+
+      <div class="note">
+        <span class="tag">Note &mdash; the trap in this part</span>
+        <p>It's easy for this to become one person defending their schedule while the other lists grievances. Both of us have work, both of us have people who need us, and both of us have been the distracted one. Every question here gets answered by both of us, even where it seems obvious that it's about one of us.</p>
+      </div>
+
+      <div class="block">
+        <h3>What our time actually looks like</h3>
+        <div class="do">
+          <span class="tag">Do this</span>
+          <p>Separately, each of us adds up <strong>last week</strong>, not an ideal week: hours we spent together in person &middot; hours on call or video &middot; hours messaging &middot; and the longest stretch we went without real contact. Then compare.</p>
+        </div>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Whose count surprised the other one more?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Of those hours, which felt like really being together, and which felt like being on a call while doing something else?</p>
+            <span class="hint">This is the whole distinction the part turns on. Quantity and quality are not the same measurement and we should stop treating them as one.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What makes an hour together feel full for you? What makes one feel empty?</p>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;It feels full when we ___. It feels empty when ___.&rdquo;</i></span></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>What each of us needs</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">How often do you need to see me in person to feel okay? Be honest, not generous.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">How much daily contact do you actually want? Would less be a problem, or a relief?</p>
+            <span class="hint">Wanting less contact isn't wanting less of each other. But if one of us reads it that way, we need to know that now.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What kind of contact fills you up &mdash; long calls, short check-ins, voice notes, doing something together on video, being messaged during the day?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">After a hard day, do you want company or space? How is the other supposed to tell which?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">In the last six months, when did you feel most far away from me &mdash; even on a day we talked?</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>When we're together but not really</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What pulls you away when we're together &mdash; phone, work, tiredness, other people, your own head?</p>
+            <span class="hint">Both answer. Neither answer is a confession; they're just different problems with different fixes.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">When I'm distracted while we're together, what do you feel &mdash; and what do you start telling yourself it means?</p>
+            <span class="hint">Say the feeling and the story separately. The story is usually the part that hurts, and it's usually not what the other person meant.</span>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;When ___ happens, I feel ___, and I start believing it means ___. What I need to know from you is ___.&rdquo;</i></span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What's the difference between "I'm genuinely occupied right now" and "you're not a priority" &mdash; and how do we tell each other which one it is?</p>
+            <span class="hint">Agree on an actual phrase. A named signal turns a wound into a logistics problem.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">What has each of us given up to make time for the other &mdash; and did the other one know about it?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Has either of us ever felt the other didn't take our commitments seriously?</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Protecting it</h3>
+        <p class="hint" style="margin-bottom:.8rem">One of the few places today where an actual agreement is available. Take it.</p>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Which hours each week are ours and uninterruptible? Name the actual hours, not a number.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What counts as a real reason to break them?</p>
+            <span class="hint">Define it now, while nobody is upset.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What's the signal we give when we have to break them, and what does the other person do with it?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">If protected time keeps getting broken, what do we do about it &mdash; before it becomes a fight?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">How do we end a call or a visit well? What makes goodbyes harder than they need to be?</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>The distance itself</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What's the hardest part of being apart, for each of us right now?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">How long do we expect to live apart, and what's the plan &mdash; who moves, and when?</p>
+            <span class="hint">An unnamed end date is its own kind of pressure. Even a rough one helps.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What would living in the same city change &mdash; for better <em>and</em> for worse?</p>
+            <span class="hint">Distance hides some problems and creates others. Some of what we like about us might be a product of the distance, and it's worth knowing which parts.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">When we do live together, what would you want an ordinary week to look like?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">How much time alone does each of us need to stay sane, and how social do we want our life to be?</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- ================= 04 ================= -->
+  <details class="part" id="p4">
+    <summary>
+      <span class="pnum">04</span>
+      <span><span class="ptitle">How we treat each other</span><span class="pmeta" data-meta>Conflict &middot; repair &middot; respect</span></span>
+      <span class="chev">&#9662;</span>
+    </summary>
+    <div class="pbody">
+      <p class="lead">Almost nobody leaves over a disagreement. They leave over how the disagreement was handled, a thousand times.</p>
+      <div class="why"><span class="tag">Why this matters</span><p>Part 03 was about how much of each other we get. This one is about what happens <em>inside</em> that time &mdash; especially when it goes wrong. Everything else on this page is a topic we could in principle avoid. This is the one we can't: whatever we decide about money or family or where we live, we will be doing it with these two tempers, in these two languages, for the rest of it.</p></div>
+
+      <div class="block">
+        <h3>What each of us does when it hurts</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">When you're hurt, what's your first instinct &mdash; go quiet, get loud, get logical, leave, fix it immediately, make a joke?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">In the last six months, what's the worst way you handled being hurt by me?</p>
+            <span class="hint">Your own worst moment, not theirs. Going first with this changes the whole block.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">How long do you need before you can talk properly again, and what do you need during that time?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What do I do that helps you calm down faster? What makes it worse?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Does arguing over text or call change how either of us behaves?</p>
+            <span class="hint">Worth naming: at this distance, most of our conflicts happen through a screen. That's a different medium with different failure modes &mdash; silence reads as punishment, tone disappears, and either of us can simply stop replying.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Own yours first</h3>
+        <div class="do">
+          <span class="tag">Do this</span>
+          <p>Separately, each of us writes <strong>two things I do in an argument that end the conversation</strong> &mdash; my own. Then underneath, <strong>two things the other person does</strong> that make me shut down.</p>
+          <p>We both read our <em>own</em> list first, both of us, before either reads the second list. The order is the entire point.</p>
+        </div>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Was there anything on their list about me that I genuinely didn't know I was doing?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Which single thing, if I stopped doing it, would change our arguments the most?</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Repair</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">How do you know we're okay again? What's the actual moment for you?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">Who usually moves first? Is that a role either of us has quietly accepted?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What kind of apology actually lands for you &mdash; words, changed behaviour, closeness, time, being asked about it again later?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">Is there anything from the last six months that was never properly repaired &mdash; just outlasted?</p>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;We never really closed ___. What I still need from it is ___.&rdquo;</i></span></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>The floor</h3>
+        <div class="do">
+          <span class="tag">Do this</span>
+          <p>Not aspirations &mdash; the line neither of us crosses however angry we are. Go through the list, agree on it, add to it, and write the final version in both notebooks with today's date.</p>
+          <ul>
+            <li>Contempt &mdash; mockery, eye-rolling, talking to each other like we're stupid.</li>
+            <li>Name-calling, and anything said to wound rather than to explain.</li>
+            <li>Threatening to leave or to call it off in order to win an argument.</li>
+            <li>Bringing our families into a fight between us.</li>
+            <li>Silence beyond an agreed length &mdash; decide the length today.</li>
+            <li>Going offline mid-argument without saying we need a pause.</li>
+            <li>Using something told in confidence, including anything said today, as a weapon.</li>
+            <li>Anything physical, ever.</li>
+          </ul>
+        </div>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What else does each of us want on this list?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What do we do if one of us crosses it?</p>
+            <span class="hint">Decide the answer now, calmly. It should be a conversation, not a catastrophe.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Respect, in actions</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Name three specific things that make you feel respected by me.</p>
+            <span class="hint">Actions, not adjectives. "Being supportive" is unusable. "Asking about the thing I was nervous about, the next day" is.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">What's something I do in front of other people that you love? Something that embarrasses you?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">How do we want to talk about each other when the other one isn't in the room?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What do our values ask of us in how we speak to each other &mdash; and are we living up to that, or just believing it?</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- ================= 05 ================= -->
+  <details class="part" id="p5">
+    <summary>
+      <span class="pnum">05</span>
+      <span><span class="ptitle">Boundaries with other people</span><span class="pmeta" data-meta>Understand first, agree second</span></span>
+      <span class="chev">&#9662;</span>
+    </summary>
+    <div class="pbody">
+      <p class="lead">The first time, we went straight to rules. This time: reasons first, agreement second.</p>
+      <div class="why"><span class="tag">Why this matters</span><p>A rule you don't believe in is one you have to keep remembering instead of just living, and remembering fails eventually &mdash; not through dishonesty, just through being human. That's why the month-one version didn't hold. If we can find the shared reasoning underneath, we won't need to police anything. If we can't find it, that's the single most important thing this whole day could tell us, and we'd both rather know it now than at year three.</p></div>
+
+      <div class="note">
+        <span class="tag">Note &mdash; read out loud before starting</span>
+        <p>Neither of us is on trial. We're both bringing a history, a set of instincts about friendship, and a comfort level we've never fully explained to each other.</p>
+        <p>Two things stay true for this whole part. <strong>One:</strong> nobody has to apologise for who their friends were before we met, or for anything that predates an agreement between us. <strong>Two:</strong> if one of us has been anxious about this, that anxiety is his or hers to <em>say</em>, not to enforce quietly. Silent watching costs a relationship more than any friendship ever has.</p>
+      </div>
+
+      <div class="block">
+        <h3>What each of us is actually protecting</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What do your friendships give you that you'd genuinely miss?</p>
+            <span class="hint">Answer honestly, or the agreement we write later will be about something neither of us understands.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What are you actually afraid of here? Say the fear, not the rule that comes from it.</p>
+            <span class="hint">"I'm afraid of being humiliated." "I'm afraid of being controlled." "I'm afraid of slowly losing my friends." "I'm afraid of not being trusted no matter what I do." All of these are real, and none of them is the same problem.</span>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;What I'm afraid of is ___. What I'd need in order to feel okay is ___.&rdquo;</i></span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Is a boundary a fence protecting something, or a cage limiting someone? When has one felt like each to you?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">Is there anything we agreed in month one that you kept but never actually agreed with?</p>
+            <span class="hint">The amnesty clause applies here, hard. Saying this out loud is the single most useful thing that can happen in this part.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What's the difference, for you, between a boundary you keep because you agreed to it and one you keep because you believe in it?</p>
+            <span class="hint">The second kind survives without anyone checking. The first kind doesn't &mdash; and that's not a character flaw, it's just how borrowed rules work.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>The map</h3>
+        <div class="do">
+          <span class="tag">Do this</span>
+          <p>Separately, in our notebooks, write <strong>1 to 12</strong> and put a number next to each:</p>
+          <div class="scale">
+            <div><b>1</b><span>Fine as it is.</span></div>
+            <div><b>2</b><span>Fine, but tell me first.</span></div>
+            <div><b>3</b><span>Not comfortable.</span></div>
+          </div>
+          <p>Neither of us looks at the other's list until both are finished.</p>
+        </div>
+        <ol class="map">
+          <li><span class="n">01</span><span>A one-on-one meal or coffee with a friend of the opposite gender</span><span class="sc">1 2 3</span></li>
+          <li><span class="n">02</span><span>Being the only person of your gender in a group outing</span><span class="sc">1 2 3</span></li>
+          <li><span class="n">03</span><span>Messaging the other of us wouldn't be shown</span><span class="sc">1 2 3</span></li>
+          <li><span class="n">04</span><span>Messages late at night</span><span class="sc">1 2 3</span></li>
+          <li><span class="n">05</span><span>Staying close to someone who once had feelings for you</span><span class="sc">1 2 3</span></li>
+          <li><span class="n">06</span><span>Staying close to someone you once had feelings for</span><span class="sc">1 2 3</span></li>
+          <li><span class="n">07</span><span>Work events, work trips, and drinks with colleagues</span><span class="sc">1 2 3</span></li>
+          <li><span class="n">08</span><span>Physical affection in friendships &mdash; hugs, sitting close</span><span class="sc">1 2 3</span></li>
+          <li><span class="n">09</span><span>Talking about our relationship problems with that friend</span><span class="sc">1 2 3</span></li>
+          <li><span class="n">10</span><span>Social media &mdash; following, liking, private messages</span><span class="sc">1 2 3</span></li>
+          <li><span class="n">11</span><span>Meeting a new friend of the opposite gender without mentioning it</span><span class="sc">1 2 3</span></li>
+          <li><span class="n">12</span><span>Going somewhere you know the other of us would be uneasy about</span><span class="sc">1 2 3</span></li>
+        </ol>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Where are our two lists furthest apart?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">For each difference: the one who marked it lower says what they'd lose by moving. The one who marked it higher says what they're protecting.</p>
+            <span class="hint">Both halves get said before either of us concedes anything. A concession made before the other person understood the cost isn't an agreement &mdash; it's a debt.</span>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;For me this is a ___ because ___. What I'd lose / what I'm protecting is ___.&rdquo;</i></span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Is there any item where our answers show we were picturing completely different situations?</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Preference or belief</h3>
+        <div class="note">
+          <span class="tag">Note &mdash; the honest question of this part</span>
+          <p>After we've each explained ourselves, some gap will probably remain. There are two very different kinds:</p>
+          <ul>
+            <li>A <strong>preference</strong> gap &mdash; we want different amounts of the same thing. These get negotiated, and both of us can move without losing ourselves.</li>
+            <li>A <strong>belief</strong> gap &mdash; we actually think different things are right. These can't be negotiated away. They can only be shared, or consciously accepted with eyes open.</li>
+          </ul>
+          <p>Each of us says which kind we think this is <strong>about ourselves</strong>, not about the other. "For me this is a belief." "For me this is a preference." Nobody diagnoses the other person.</p>
+        </div>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">If it's a belief gap: can each of us live with the other holding that belief, honestly?</p>
+            <span class="hint">Not "can I get them to change." Can I live with it if they don't.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">If it's a preference gap: what's the version we can both live inside &mdash; not the version one of us endures?</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>The other direction</h3>
+        <p class="hint" style="margin-bottom:.8rem">Boundaries are a two-way agreement or they're a leash. This block is what the more anxious one owes in return.</p>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What does each of us need in order to feel <em>trusted</em> rather than managed?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What would checking, testing, or quiet suspicion cost us over ten years?</p>
+            <span class="hint">Answer it seriously. It's a real cost, and it lands on the relationship &mdash; not just on the person being watched.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">If one of us keeps the agreement, what does the other owe in return? Name it as a specific commitment.</p>
+            <span class="hint">For example: raising worries early and directly instead of storing them; not re-litigating things already settled; not reading an old pattern into a new moment.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">How does either of us raise a worry about this in future without it becoming an accusation? Agree on the opening sentence today.</p>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;Something's sitting with me and I'd rather say it than carry it. It's about ___.&rdquo;</i></span></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>What we write down</h3>
+        <div class="do">
+          <span class="tag">Do this</span>
+          <p>Write three to six lines, in our own words, that we <em>both</em> actually agree with. If either of us is signing something we don't believe, we stop and go back &mdash; an agreement only one of us believes in is worse than none, because it also destroys the evidence.</p>
+        </div>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What happens if one of us breaks it?</p>
+            <span class="hint">Decide today, calmly, that the answer is a conversation. Deciding it while nobody is hurt is the only time it can be decided fairly.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">When do we look at this again?</p>
+            <span class="hint">Three months is reasonable. Reviewing it is maintenance, not a sign of trouble.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- ================= 06 ================= -->
+  <details class="part" id="p6">
+    <summary>
+      <span class="pnum">06</span>
+      <span><span class="ptitle">Family &mdash; ours and theirs</span><span class="pmeta" data-meta>Parents &middot; siblings &middot; children</span></span>
+      <span class="chev">&#9662;</span>
+    </summary>
+    <div class="pbody">
+      <p class="lead">None of this has arrived yet. That's exactly why it's easy to agree in principle now and find a real gap later.</p>
+      <div class="why"><span class="tag">Why this matters</span><p>Both of us carry obligations to our parents and siblings that we accepted before we ever met each other. Those obligations will arrive with a phone call one day, and by then there's no time to negotiate. We're deciding the shape while it's still cheap and nobody is in crisis.</p></div>
+
+      <div class="block">
+        <h3>What's coming</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Realistically, who in each of our families will need support, and roughly when?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What kind of support &mdash; money, time, care, or living with us?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What did your parents do for their parents, and is that the standard you feel you carry?</p>
+            <span class="hint">Most of us inherit an obligation without ever having agreed to it. Naming it isn't the same as rejecting it.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Are there siblings whose situation might become ours &mdash; school fees, debt, a place to stay?</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Promises already made</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What has each of us already promised our family &mdash; out loud or by implication &mdash; that the other doesn't know about?</p>
+            <span class="hint">Amnesty clause. This is common and it isn't a betrayal. It's the ordinary result of being a good child before you were someone's partner.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What does each of our families expect of the person we marry?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Where do those expectations conflict with what we want for ourselves?</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>The limit</h3>
+        <p class="hint" style="margin-bottom:.8rem">Honouring parents and being consumed by that duty are different things. This is the line between them.</p>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What's the most each of us can give &mdash; a number and a frequency &mdash; without it costing our own household?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Do we decide family support together, or does each of us handle our own family alone?</p>
+            <span class="hint">Both are workable. What isn't workable is one of us assuming one and the other assuming the other.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Who talks to whose parents when something is difficult?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Would either of us live with parents, or have them live with us? For how long?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What do our values say about duty to parents &mdash; and how do we honour that without letting it decide our marriage for us?</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Children</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Do we want them? How many, and roughly when?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What happens if we can't, or it takes years?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Whose work flexes when there's a baby, and for how long? What does that do to the money agreement from Part 02?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">How would we raise them &mdash; discipline, faith, schooling, language?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">How involved would our parents be, and who decides that?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">One thing from your own upbringing you'd keep, and one you'd never repeat.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- ================= 07 ================= -->
+  <details class="part" id="p7">
+    <summary>
+      <span class="pnum">07</span>
+      <span><span class="ptitle">Growth, and what change does to us</span><span class="pmeta" data-meta>The uncomfortable one</span></span>
+      <span class="chev">&#9662;</span>
+    </summary>
+    <div class="pbody">
+      <p class="lead">We're both going to become someone slightly different. The question is whether each of us can stay when the other does.</p>
+      <div class="why"><span class="tag">Why this matters</span><p>Everything else on this page describes the two people we are today. This part is the only one that asks about the two people we'll be in ten years &mdash; and those are the people who actually have to stay married. Most couples who drift apart didn't disagree about anything on the earlier lists. One of them changed, and neither had ever said out loud what they'd need if that happened.</p></div>
+
+      <div class="block">
+        <h3>Evidence, not theory</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Describe a recent time your life changed hard. What did you actually do?</p>
+            <span class="hint">Not what you'd like to think you'd do. What you did.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Who did you become for a while during it &mdash; and what would you have needed from me in that version of you?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">Has either of us already changed in these six months in a way the other noticed but didn't mention?</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Where each of us is heading</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Five years from now: work, home, money, health, faith. Say it out loud even if it feels premature.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What does the other person's answer cost you?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What does each of our careers realistically look like &mdash; is either of us in a field with a slow curve or a low ceiling?</p>
+            <span class="hint">Say the real shape of it. A career that plateaus isn't a personal failure, but pretending it won't is how it becomes a resentment.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What would we do if one of us is genuinely stuck, for years?</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>If one of us gets further ahead</h3>
+        <div class="note">
+          <span class="tag">Note &mdash; run it both ways</span>
+          <p>This is the question most couples skip because raising it feels disloyal. It isn't. Assume for ten minutes that one of us ends up with significantly more income, status or authority than the other &mdash; and answer <strong>both</strong> sets of questions below, each of us, whichever of us it turns out to be. Then swap and do it again with the roles reversed.</p>
+        </div>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">As the one further behind: what exactly are you afraid of? Say the specific version, not "I'd feel bad."</p>
+            <span class="hint">Being spoken to differently. Not being consulted. Being introduced as an afterthought. Having your opinion carry less weight at home. Name the actual moment you're picturing.</span>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;What I'm picturing is ___. What would make it bearable is ___.&rdquo;</i></span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">As the one further behind: what would make you feel small, and what would make you feel proud of them instead?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">As the one further ahead: what do you fear &mdash; being resented, having to shrink it, having to explain it?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Have you ever downplayed a success to keep the peace with someone? What did that cost you?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Name the specific behaviour &mdash; not the money &mdash; that would tell each of us we're still respected in that scenario.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What's the early warning sign that this is going wrong, and what do we do about it then rather than three years later?</p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>The limits of change</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">What kind of change in me would you struggle to accept?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Is there anything you're hoping I'll grow out of?</p>
+            <span class="hint">Say it. Marrying someone on the assumption they'll become a different person is the most common way this goes wrong, and it's usually done sincerely.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">Is there anything about me you'd want changed that I've shown no sign of changing in six months?</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- ================= 08 ================= -->
+  <details class="part" id="p8">
+    <summary>
+      <span class="pnum">08</span>
+      <span><span class="ptitle">The non-negotiables</span><span class="pmeta" data-meta>Written apart, read together</span></span>
+      <span class="chev">&#9662;</span>
+    </summary>
+    <div class="pbody">
+      <p class="lead">The things where, if it went the other way, we could not build a life here.</p>
+      <div class="why"><span class="tag">Why this matters</span><p>Everything before this was negotiable. This part is the floor underneath it. Doing it near the end matters &mdash; after a day of honesty we know much more about what we actually need than we did this morning, and the lists we write now will be truer than the ones we'd have written before breakfast.</p></div>
+
+      <div class="do">
+        <span class="tag">Do this</span>
+        <p>Separately, in different rooms, no discussion. Each of us writes <strong>a maximum of five</strong>, as short plain sentences.</p>
+        <p><strong>The test:</strong> if this went the other way, would I be unable to build a life here? If the honest answer is "I'd hate it but I'd stay," it's a preference and it belongs in an earlier part. If you have more than five, they're preferences.</p>
+        <div class="twocol">
+          <div class="c cd"><b>D's five</b>Alone. No looking.</div>
+          <div class="c cg"><b>G's five</b>Alone. No looking.</div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="tag">Note &mdash; rules for the reveal</span>
+        <ul>
+          <li>Read one at a time, alternating.</li>
+          <li>After each one, the listener asks exactly one question: <em>"what's underneath this one?"</em></li>
+          <li>No negotiating, agreeing, or objecting during the reveal. Both lists get fully read first.</li>
+          <li>Nothing on either list is ever up for mockery, including months from now.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>After both lists are read</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Sort every item into: shared &middot; compatible &middot; in conflict.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">For anything in conflict: is it truly non-negotiable for both of us, or is one of us holding it more loosely than we wrote it?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Was anything on their list a surprise? Was anything you expected to see missing?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Is there something you almost wrote down and didn't? Say it now.</p></div></li>
+        </ul>
+      </div>
+
+      <div class="note">
+        <span class="tag">Note &mdash; if something lands in conflict</span>
+        <p>Don't solve it today, and don't panic about it today. A genuine conflict between two non-negotiables is the single most important thing this whole day could have surfaced &mdash; finding it is the process succeeding, not the relationship failing. Write it down, sit with it separately for a week, and give it its own conversation.</p>
+      </div>
+    </div>
+  </details>
+
+  <!-- ================= 09 ================= -->
+  <details class="part" id="p9">
+    <summary>
+      <span class="pnum">09</span>
+      <span><span class="ptitle">Remaining doubts</span><span class="pmeta" data-meta>The part people skip</span></span>
+      <span class="chev">&#9662;</span>
+    </summary>
+    <div class="pbody">
+      <p class="lead">A doubt said out loud shrinks. A doubt kept becomes the story we tell ourselves later about why it didn't work.</p>
+      <div class="why"><span class="tag">Why this matters</span><p>This is the part the first conversation didn't reach, and it's why the first conversation didn't hold. Everything else today can be answered sincerely and still leave the real thing unsaid. If we only do one part properly, it should be this one.</p></div>
+
+      <div class="note">
+        <span class="tag">Note &mdash; how to say one, and how to hear one</span>
+        <p><strong>Saying it.</strong> Use the shape below. It keeps the doubt about a situation and a need, instead of about the other person's character.</p>
+        <p><strong>Hearing it.</strong> Three jobs, in order: don't defend yourself for the first sixty seconds; ask one question; say thank you. Respond properly afterwards &mdash; but not in that first minute, because the first minute is what teaches us whether it's safe to do this again.</p>
+      </div>
+
+      <div class="block">
+        <h3>Each of us, in turn</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">The doubt I've had for a while and haven't said.</p>
+            <span class="shape"><b>Say it like this</b><i>&ldquo;When ___ happens, I worry that ___, and what I need to know from you is ___.&rdquo;</i></span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-six">Six months</span>
+            <p class="qtext">The thing I'm afraid is a pattern rather than a moment.</p>
+            <span class="hint">Say what would tell you it's only a moment. Giving a worry a way to be disproven is the difference between a worry and a verdict.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Something I'm afraid you'd have to change about yourself for this to work &mdash; and whether I even want you to.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Something I'm doing that I know isn't fair to you.</p>
+            <span class="hint">This one is about yourself, on purpose. The part is only survivable if both of us are exposed in it.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What I need from you that I've been embarrassed to ask for.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">If we don't work out, what would the reason most likely be?</p>
+            <span class="hint">Answer honestly. It's the most useful question here, and hearing it isn't an announcement that either of us is leaving.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>After</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">What did each of us hear that we want to sit with rather than answer today?</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Is there anything either of us said today we want to be sure the other doesn't misread? Say it again, in different words.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Say thank you, out loud and properly, for the hardest thing the other person said today.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <!-- ================= 10 ================= -->
+  <details class="part" id="p10">
+    <summary>
+      <span class="pnum">10</span>
+      <span><span class="ptitle">Where we actually stand</span><span class="pmeta" data-meta>Closing</span></span>
+      <span class="chev">&#9662;</span>
+    </summary>
+    <div class="pbody">
+      <p class="lead">No scores. Just an honest sort, so we both leave with the same picture.</p>
+      <div class="why"><span class="tag">Why this matters</span><p>Long conversations blur. Without this part, each of us walks away with a private summary of the day, and those two summaries will differ more than either of us expects. Twenty minutes here is what makes today something we can refer back to instead of something we half-remember.</p></div>
+
+      <div class="block">
+        <h3>Sort the seven areas</h3>
+        <div class="do">
+          <span class="tag">Do this</span>
+          <p>Together, put each area into one of the three columns: money &middot; time and presence &middot; how we treat each other &middot; boundaries &middot; our families &middot; children &middot; growth and change.</p>
+        </div>
+        <div class="sort">
+          <div class="sortcol"><h4>Aligned</h4><p>We understand each other and want the same thing.</p></div>
+          <div class="sortcol"><h4>Work to do</h4><p>Not aligned yet, but we can see the path and both want to walk it.</p></div>
+          <div class="sortcol"><h4>Genuinely open</h4><p>We don't know yet. Naming it as open is honest, not pessimistic.</p></div>
+        </div>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-now">Now</span>
+            <p class="qtext">Did we sort any of them differently from each other?</p>
+            <span class="hint">A disagreement about which column something goes in matters more than the column.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h3>Write down, before we close this</h3>
+        <ul class="qs">
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Three things we actually agreed today.</p>
+            <span class="hint">Specific enough that we'd both recognise a breach. Write them in one place, both of us reading the words.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">Two things we are not agreed on &mdash; and what we're going to do about each.</p></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">One thing each of us will do differently starting this week.</p>
+            <span class="hint">Small and real. Big promises made at the end of a long emotional day have a poor record.</span></div></li>
+          <li class="q"><button class="tick" type="button" aria-pressed="false" aria-label="Mark done"></button><div>
+            <span class="tense t-ahead">Ahead</span>
+            <p class="qtext">The date we sit down again.</p>
+            <span class="hint">Three months. Put it in both calendars before we close this page. The reason the first conversation didn't hold is that there was never a second one scheduled.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="note">
+        <span class="tag">Note &mdash; one last thing to say to each other</span>
+        <p>Whatever came up today, the other person chose to tell you rather than keep it. That was the harder option, and it was a form of commitment. Say so.</p>
+      </div>
+
+      <p class="close-note">Today wasn't for proving we're right for each other, and it wasn't for catching anyone out. It was for replacing what we <em>assume</em> about each other with what we've actually said out loud.<br><br><strong>If something came up that doesn't resolve, that isn't the day failing. That's the day doing its job.</strong> Clarity first. The decision comes after &mdash; and it comes easier.</p>
+
+      <p class="sig">D &amp; G &middot; month six &middot; second pass</p>
+    </div>
+  </details>
+
+</div>
+
+<button class="fab" id="pausebtn" type="button">Pause</button>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-in" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <h3 id="sheet-title">We're pausing</h3>
+    <p class="sd">No reason needed. Nothing is lost by stopping here.</p>
+    <ol>
+      <li>Stop the topic where it is. Don't finish the sentence.</li>
+      <li>Ten minutes minimum, apart. Drink some water.</li>
+      <li>Whoever called the pause says when they're ready &mdash; not the other one.</li>
+      <li>Come back and say what you were feeling, not what they were doing.</li>
+      <li>If it's still too much, park the topic for another day and move to the next part. That's allowed and it isn't a failure.</li>
+    </ol>
+    <p class="sd">The line either of us can use at any time:</p>
+    <p class="say">&ldquo;That's a verdict, not a question. Can we reset?&rdquo;</p>
+    <p class="sd">And what we promised at the start: honesty gets thanked, not punished. Nothing said today gets used later.</p>
+    <button class="closebtn" id="closebtn" type="button">Back to it</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY = "dg-alignment-v2";
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e) { state = {}; }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {} }
+
+  var parts = Array.prototype.slice.call(document.querySelectorAll(".part"));
+  var fill = document.getElementById("fill");
+  var count = document.getElementById("count");
+  var total = 0;
+
+  parts.forEach(function(part){
+    var items = Array.prototype.slice.call(part.querySelectorAll(".q"));
+    total += items.length;
+
+    var foot = document.createElement("p");
+    foot.className = "pfoot";
+    var body = part.querySelector(".pbody");
+    if (body) body.appendChild(foot);
+
+    function refresh(){
+      var n = 0;
+      items.forEach(function(li, i){
+        var id = part.id + ":" + i;
+        var on = !!state[id];
+        li.classList.toggle("answered", on);
+        var b = li.querySelector(".tick");
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+        b.textContent = on ? "✓" : "";
+        if (on) n++;
+      });
+      part.classList.toggle("alldone", items.length > 0 && n === items.length);
+      foot.textContent = n + " of " + items.length + " covered in this part";
+      globalRefresh();
+    }
+
+    items.forEach(function(li, i){
+      var id = part.id + ":" + i;
+      li.querySelector(".tick").addEventListener("click", function(){
+        if (state[id]) { delete state[id]; } else { state[id] = 1; }
+        save();
+        refresh();
+      });
+    });
+
+    part._refresh = refresh;
+  });
+
+  function globalRefresh(){
+    var n = 0;
+    for (var k in state) { if (Object.prototype.hasOwnProperty.call(state, k)) n++; }
+    if (n > total) n = total;
+    fill.style.width = (total ? Math.round(n / total * 100) : 0) + "%";
+    count.textContent = n + "/" + total;
+  }
+
+  parts.forEach(function(p){ if (p._refresh) p._refresh(); });
+
+  var sheet = document.getElementById("sheet");
+  var pausebtn = document.getElementById("pausebtn");
+  var closebtn = document.getElementById("closebtn");
+  function openSheet(){ sheet.hidden = false; closebtn.focus(); }
+  function closeSheet(){ sheet.hidden = true; pausebtn.focus(); }
+  pausebtn.addEventListener("click", openSheet);
+  closebtn.addEventListener("click", closeSheet);
+  sheet.addEventListener("click", function(e){ if (e.target === sheet) closeSheet(); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !sheet.hidden) closeSheet(); });
+})();
+</script>

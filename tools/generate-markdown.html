@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Buat ulang alignmentday.md</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font: 15px/1.5 -apple-system, "Segoe UI", system-ui, sans-serif;
+      max-width: 46rem; margin: 2rem auto; padding: 0 1.25rem;
+    }
+    h1 { font-size: 1.2rem; }
+    p { color: #555; }
+    button {
+      font: inherit; padding: .55rem 1rem; cursor: pointer;
+      border: 1px solid currentColor; border-radius: 4px; background: transparent;
+    }
+    pre {
+      margin-top: 1.25rem; padding: 1rem; border: 1px solid #8884;
+      border-radius: 6px; white-space: pre-wrap; word-break: break-word;
+      max-height: 60vh; overflow: auto; font-size: 12.5px;
+    }
+    .row { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+    code { background: #8882; padding: .1em .35em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <h1>Buat ulang <code>alignmentday.md</code></h1>
+  <p>
+    Membuat versi teks dari <code>js/content.js</code>. Klik <em>Unduh</em>, lalu
+    ganti <code>alignmentday.md</code> di folder utama proyek dengan file hasil
+    unduhan.
+  </p>
+  <div class="row">
+    <button id="download" type="button">Unduh alignmentday.md</button>
+    <button id="copy" type="button">Salin ke clipboard</button>
+    <span id="status"></span>
+  </div>
+  <pre id="preview">Memuat…</pre>
+
+  <script src="../js/content.js"></script>
+  <script src="markdown.js"></script>
+  <script>
+    (function () {
+      var md;
+      try {
+        md = window.alignmentToMarkdown(window.ALIGNMENT_DAY);
+      } catch (e) {
+        document.getElementById("preview").textContent = "Kesalahan: " + e.message;
+        return;
+      }
+      document.getElementById("preview").textContent = md;
+
+      function setStatus(t) {
+        var s = document.getElementById("status");
+        s.textContent = t;
+        if (t) setTimeout(function () { s.textContent = ""; }, 2500);
+      }
+
+      document.getElementById("download").addEventListener("click", function () {
+        var blob = new Blob([md], { type: "text/markdown;charset=utf-8" });
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "alignmentday.md";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+      });
+
+      document.getElementById("copy").addEventListener("click", function () {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(md).then(
+            function () { setStatus("Tersalin."); },
+            function () { setStatus("Gagal menyalin — pilih teksnya manual."); }
+          );
+        } else {
+          setStatus("Clipboard tidak tersedia — pilih teksnya manual.");
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

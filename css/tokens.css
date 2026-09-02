@@ -1,0 +1,54 @@
+/* Design tokens: colour, type and spacing variables + theme overrides.
+   Everything downstream references these custom properties, never raw values. */
+
+:root{
+  --paper:#F1F1EC;
+  --surface:#FBFAF7;
+  --surface-2:#E7E7DF;
+  --ink:#22262B;
+  --ink-2:#565C63;
+  --ink-3:#868C92;
+  --rule:#D9D9D1;
+  --rule-soft:#E4E4DC;
+  --d:#2C5F5A;
+  --d-soft:#DCE8E6;
+  --g:#7A3F5D;
+  --g-soft:#EFE0E7;
+  --note-bg:#E9EDE1;
+  --note-ink:#3B462F;
+  --note-rule:#C4CFB3;
+  --do-rule:#B9B9AE;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono","SFMono-Regular",Menlo,monospace;
+  --wrap:40rem;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#14171A; --surface:#1C2126; --surface-2:#242A30;
+    --ink:#E7E8E4; --ink-2:#A4AAAF; --ink-3:#787E84;
+    --rule:#2F363C; --rule-soft:#252B31;
+    --d:#79BDB3; --d-soft:#1C2E2C; --g:#D08FAE; --g-soft:#2E2029;
+    --note-bg:#1E251F; --note-ink:#C4D0B6; --note-rule:#374333; --do-rule:#3A424A;
+  }
+}
+
+:root[data-theme="dark"]{
+  --paper:#14171A; --surface:#1C2126; --surface-2:#242A30;
+  --ink:#E7E8E4; --ink-2:#A4AAAF; --ink-3:#787E84;
+  --rule:#2F363C; --rule-soft:#252B31;
+  --d:#79BDB3; --d-soft:#1C2E2C; --g:#D08FAE; --g-soft:#2E2029;
+  --note-bg:#1E251F; --note-ink:#C4D0B6; --note-rule:#374333; --do-rule:#3A424A;
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;animation:none !important}
+}
+
+@media print{
+  .bar,.fab{display:none}
+  .part{break-inside:avoid}
+  .q{opacity:1 !important}
+  body{background:#fff;color:#000}
+}

@@ -1,0 +1,66 @@
+/* Page-level structure: the sticky bar, the title masthead,
+   the collapsible parts and their footers. */
+
+/* ---------- quiet top bar ---------- */
+.bar{
+  position:sticky;top:0;z-index:40;
+  background:var(--paper);
+  background:color-mix(in srgb, var(--paper) 90%, transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);
+}
+.bar-in{max-width:var(--wrap);margin:0 auto;padding:.5rem 20px;display:flex;align-items:center;gap:.7rem}
+.bar-name{font-family:var(--serif);font-size:.95rem;color:var(--ink-2);white-space:nowrap}
+.bar-track{flex:1;height:2px;background:var(--rule)}
+.bar-fill{display:block;height:100%;width:0%;background:var(--ink-3);transition:width .3s ease}
+.bar-count{font-family:var(--mono);font-size:.66rem;color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ---------- title page ---------- */
+.mast{padding:3.2rem 0 2rem;border-bottom:1px solid var(--rule)}
+.mast .for{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin:0 0 1.4rem}
+.mast h1{font-family:var(--serif);font-weight:300;font-size:2.5rem;line-height:1.1;margin:0 0 .3rem;letter-spacing:-.01em}
+.mast .sub{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--ink-2);margin:0 0 1.8rem}
+.mast p.body{font-size:1rem;color:var(--ink-2);max-width:33rem}
+.mast p.body strong{color:var(--ink);font-weight:500}
+.names{display:flex;align-items:baseline;gap:.45rem;font-family:var(--serif);font-size:1.2rem;margin:0 0 1.6rem}
+.names .dd{color:var(--d)}
+.names .gg{color:var(--g)}
+.names .amp{color:var(--ink-3);font-style:italic}
+
+/* ---------- parts ---------- */
+.part{border-bottom:1px solid var(--rule)}
+.part > summary{
+  list-style:none;cursor:pointer;display:grid;grid-template-columns:2rem 1fr 1rem;
+  align-items:start;gap:.8rem;padding:1.4rem 0;
+}
+.part > summary::-webkit-details-marker{display:none}
+.part > summary:focus-visible{outline:2px solid var(--d);outline-offset:3px;border-radius:4px}
+.pnum{font-family:var(--mono);font-size:.7rem;color:var(--ink-3);padding-top:.4rem;font-variant-numeric:tabular-nums}
+.ptitle{font-family:var(--serif);font-weight:400;font-size:1.45rem;line-height:1.2;display:block}
+.pmeta{font-family:var(--mono);font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);margin-top:.35rem;display:block;font-variant-numeric:tabular-nums}
+.chev{margin-top:.5rem;color:var(--ink-3);transition:transform .2s ease;justify-self:end}
+.part[open] .chev{transform:rotate(180deg)}
+.part.alldone .ptitle{color:var(--ink-3)}
+.part.alldone .pnum::after{content:" ✓";color:var(--d)}
+.pbody{padding:0 0 2rem}
+
+/* intro + why */
+.lead{font-family:var(--serif);font-size:1.1rem;color:var(--ink);margin:0 0 1rem;line-height:1.5}
+.why{border-left:2px solid var(--rule);padding:.1rem 0 .1rem .9rem;margin:0 0 1.8rem}
+.why .tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:.3rem}
+.why p{font-size:.94rem;color:var(--ink-2);margin:0}
+
+/* blocks */
+.block{margin:0 0 2rem}
+.block > h3{
+  font-family:var(--sans);font-size:.74rem;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink);margin:0 0 .9rem;
+  padding-bottom:.4rem;border-bottom:1px solid var(--rule-soft);
+}
+
+/* part footer */
+.pfoot{margin-top:1.4rem;padding-top:.9rem;border-top:1px solid var(--rule-soft);font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+/* closing */
+.close-note{margin-top:2rem;padding-top:1.4rem;border-top:1px solid var(--rule);font-family:var(--serif);font-size:1.1rem;line-height:1.55;color:var(--ink-2)}
+.close-note strong{color:var(--ink);font-weight:400;font-style:italic}
+.sig{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:1.8rem}
